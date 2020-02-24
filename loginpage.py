@@ -16,6 +16,7 @@ class LoginPage(Screen):
             info.text = '[color=#FF0000]Username and/ or Password required[/color]'
         else:
             if username == 'admin' and password == 'admin':
+                info.text = ''
                 self.manager.current = "user"
             else:
                 info.text = '[color=#FF0000]Invalid Username and/or Password[/color]'
