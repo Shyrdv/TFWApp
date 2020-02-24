@@ -5,8 +5,20 @@ from kivy.lang.builder import Builder
 
 class LoginPage(Screen):
     def verify_credentials(self):
-        if self.ids["login"].text == "tfw" and self.ids["passw"].text == "tfw":
-            self.manager.current = "user"
+        user = self.ids.login
+        pwd = self.ids.passw
+        info = self.ids.info
+
+        username = user.text
+        password = pwd.text
+
+        if username == '' or password == '':
+            info.text = '[color=#FF0000]Username and/ or Password required[/color]'
+        else:
+            if username == 'tfw' and password == 'tfw':
+                self.manager.current = "user"
+            else:
+                info.text = '[color=#FF0000]Invalid Username and/or Password[/color]'
 
 
 class UserPage(Screen):
