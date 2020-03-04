@@ -18,6 +18,9 @@ class LoginPage(Screen):
         user = self.ids.login
         pwd = self.ids.passw
         info = self.ids.info
+        r_user = self.ids.rem_user
+        r_pass = self.ids.rem_pass
+
         i = 0
         username = user.text
         password = pwd.text
@@ -27,8 +30,12 @@ class LoginPage(Screen):
         else:
             if username == 'admin' and password == 'admin':
                 info.text = ''
-                user.text = ''
-                pwd.text = ''
+                if r_user.active:
+                    r_pass.disabled=False
+                if not r_user.active:
+                    user.text = ''
+                if not r_pass.active:
+                    pwd.text = ''
                 self.manager.current = "user"
 
             else:
