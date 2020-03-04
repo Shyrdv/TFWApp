@@ -68,9 +68,11 @@ ScreenManagement:
     name: "user"
 
     NavDemoWindow:
+        id: nav
         anim_type :'slide_above_anim'
         side_panel_width: min(dp(350), 0.8*self.width)
         BoxLayout:
+            spacing: 10
             orientation:'vertical'
             canvas.before:
                 Color:
@@ -124,6 +126,11 @@ ScreenManagement:
                     size_hint_y: 0.7
         GridLayout:
             cols: 1
+            Button:
+                text: '+'
+                size_hint: (None,None)
+                size: (45,45)
+                on_release: nav.toggle_state()
             Label:
                 text: "Velkommen"
             Label:
@@ -131,5 +138,6 @@ ScreenManagement:
             Button:
                 text: "Turn around"
                 on_release: app.root.current = "login_page"
+
 
 
