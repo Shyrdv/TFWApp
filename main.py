@@ -1,6 +1,12 @@
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang.builder import Builder
+from kivy.garden.navigationdrawer import NavigationDrawer as ND
+
+
+class NavDemoWindow(ND):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
 
 class LoginPage(Screen):
@@ -24,7 +30,8 @@ class LoginPage(Screen):
 
 class UserPage(Screen):
     pass
-
+  #  def __init__(self, **kwargs):
+        #self.add_widget(NavDemoWindow)
 
 class ScreenManagement(ScreenManager):
     pass

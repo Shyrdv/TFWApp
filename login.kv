@@ -1,11 +1,10 @@
 #: import WipeTransition kivy.uix.screenmanager.WipeTransition
 
 
-<GridLayout>
-<FloatLayout>
 ScreenManagement:
     LoginPage:
     UserPage:
+
 
 <LoginPage>:
     canvas.before:
@@ -67,12 +66,70 @@ ScreenManagement:
 
 <UserPage>:
     name: "user"
-    GridLayout:
-        cols: 1
-        Label:
-            text: "Velkommen"
-        Label:
-            text: "Velkommen"
-        Button:
-            text: "Turn around"
-            on_release: app.root.current = "login_page"
+
+    NavDemoWindow:
+        anim_type :'slide_above_anim'
+        side_panel_width: min(dp(350), 0.8*self.width)
+        BoxLayout:
+            orientation:'vertical'
+            canvas.before:
+                Color:
+                    rgba: (1,1,1,1)
+                Rectangle:
+                    pos:self.pos
+                    size: self.size
+            BoxLayout:
+                orientation:'vertical'
+                BoxLayout:
+
+                    id: av
+                    size: min(root.size)/2.5, min(root.size)/2.5
+                    size_hint: None, None
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+
+                    canvas.after:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Ellipse:
+                            size: self.size
+                            pos: self.pos
+                            source: 'logo.png'
+
+                Label:
+                    text:'test'
+                    color: (0,0,0,1)
+                    size_hint_y: .05
+            BoxLayout:
+                orientation: 'vertical'
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.1
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.1
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.1
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.1
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.1
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.1
+                Label:
+                    text: 'Label'
+                    size_hint_y: 0.7
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Velkommen"
+            Label:
+                text: "Velkommen"
+            Button:
+                text: "Turn around"
+                on_release: app.root.current = "login_page"
+
+
