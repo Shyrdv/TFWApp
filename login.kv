@@ -119,25 +119,34 @@ ScreenManagement:
                     text: 'Button'
                     size_hint_y: 0.1
                 Button:
-                    text: 'Button'
+                    text: 'Log Ud'
                     size_hint_y: 0.1
+                    on_release: app.root.current = "login_page"
                 Label:
                     text: 'Label'
                     size_hint_y: 0.7
         GridLayout:
             cols: 1
             Button:
-                text: '+'
+                background_normal: ''
+                background_color: 1, 1, 1, 1
                 size_hint: (None,None)
                 size: (45,45)
                 on_release: nav.toggle_state()
+                canvas.after:
+                    Color:
+                        rgba: (1,1,1,0.5)
+                    Rectangle:
+                        size: 40,40
+                        pos: self.pos
+                        source: 'menuicon.png'
             Label:
                 text: "Hva så man"
             Label:
                 text: "Velkommen"
             Button:
                 text: "Turn around"
-                on_release: app.root.current = "login_page"
+
 
 
 

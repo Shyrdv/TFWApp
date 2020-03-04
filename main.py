@@ -27,6 +27,8 @@ class LoginPage(Screen):
         else:
             if username == 'admin' and password == 'admin':
                 info.text = ''
+                user.text = ''
+                pwd.text = ''
                 self.manager.current = "user"
 
             else:
