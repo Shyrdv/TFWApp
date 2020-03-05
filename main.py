@@ -6,7 +6,9 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.garden.navigationdrawer import NavigationDrawer as ND
-
+from kivy.config import Config
+from kivy.core.window import Window
+from kivy.metrics import dp, sp
 
 class NavDemoWindow(ND):
     def __init__(self, **kwargs):
@@ -15,11 +17,15 @@ class NavDemoWindow(ND):
 
 class LoginPage(Screen):
     def verify_credentials(self):
+
         user = self.ids.login
         pwd = self.ids.passw
         info = self.ids.info
         r_user = self.ids.rem_user
         r_pass = self.ids.rem_pass
+
+
+
 
         i = 0
         username = user.text
@@ -61,4 +67,6 @@ class LoginApp(App):
 
 
 if __name__ == '__main__':
+    Config.set('graphics', 'resizable', 0)
+    Window.size = (500, 1000)
     LoginApp().run()
