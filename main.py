@@ -10,6 +10,7 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.metrics import dp, sp
 
+
 class NavDemoWindow(ND):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -24,10 +25,6 @@ class LoginPage(Screen):
         r_user = self.ids.rem_user
         r_pass = self.ids.rem_pass
 
-
-
-
-        i = 0
         username = user.text
         password = pwd.text
 
@@ -46,8 +43,6 @@ class LoginPage(Screen):
 
             else:
                 info.text = '[color=#FF0000]Invalid Username and/or Password[/color]'
-
-
 
 
 class UserPage(Screen):
