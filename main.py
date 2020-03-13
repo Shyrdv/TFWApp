@@ -61,6 +61,4 @@ class LoginApp(App):
 
 
 if __name__ == '__main__':
-    Config.set('graphics', 'resizable', 0)
-    Window.size = (500, 1000)
     LoginApp().run()
