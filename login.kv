@@ -28,12 +28,13 @@ ScreenManagement:
         TextInput:
             id: login
             hint_text: "Username.."
-            font_size: 24
+            font_size: 40
             multiline: False
             halign: 'left'
             valign: 'middle'
-            size_hint: 0.5,0.07
             pos_hint: {"x":0.25,"top": 0.45}
+            size_hint: 0.5,0.05
+            #size_hint_y:None
 
         CheckBox:
             id: rem_user
@@ -44,11 +45,11 @@ ScreenManagement:
         TextInput:
             id: passw
             hint_text: "Password.."
-            font_size: 24
+            font_size: 40
             multiline: False
             halign: 'left'
             valign: 'middle'
-            size_hint: 0.5,0.07
+            size_hint: 0.5,0.05
             pos_hint: {"x":0.25,"top": 0.35}
             password: True # hide password
 
@@ -59,6 +60,7 @@ ScreenManagement:
             pos_hint: {"x":0.77,"top": 0.35}
 
         Button:
+            id: btn2
             text: "Login"
             font_size: 24
             size_hint: 0.3,0.07
@@ -73,7 +75,7 @@ ScreenManagement:
 
     NavDemoWindow:
         id: nav
-        anim_type :'slide_above_anim'
+        anim_type :'slide_above_simple'
         side_panel_width: min(dp(350), 0.8*self.width)
         BoxLayout:
             spacing: 10
@@ -93,13 +95,6 @@ ScreenManagement:
                     size_hint: None, None
                     pos_hint: {'center_x': .5, 'center_y': .5}
 
-                    canvas.after:
-                        Color:
-                            rgba: (1,1,1,1)
-                        Ellipse:
-                            size: self.size
-                            pos: self.pos
-                            source: 'logo.png'
 
                 Label:
                     text:'test'
@@ -150,7 +145,3 @@ ScreenManagement:
                 text: "Velkommen"
             Button:
                 text: "Turn around"
-
-
-
-
