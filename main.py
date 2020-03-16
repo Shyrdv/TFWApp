@@ -9,6 +9,27 @@ from kivy.garden.navigationdrawer import NavigationDrawer
 from kivy.config import Config
 from kivy.core.window import Window
 from kivy.metrics import dp, sp
+import mysql.connector
+import hashlib
+
+
+
+
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="ubunto123",
+    database="TFW"
+)
+mycursor = db.cursor()
+
+#mycursor.execute("CREATE TABLE Users (username VARCHAR(20) NOT NULL, password VARCHAR(100) NOT NULL, admin_rights boolean NOT NULL, userID int PRIMARY KEY AUTO_INCREMENT)")
+#hash_object = hashlib.sha256('daviid'.encode('utf-8'))
+#hex_dig = hash_object.hexdigest()
+
+
+#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("daviid", hex_dig, False))
+#db.commit()
 
 
 class NavDemoWindow(NavigationDrawer):
@@ -21,8 +42,6 @@ class LoginPage(Screen):
         user = self.ids.login
         pwd = self.ids.passw
         info = self.ids.info
-        r_user = self.ids.rem_user
-        r_pass = self.ids.rem_pass
 
         username = user.text
         password = pwd.text
@@ -32,12 +51,6 @@ class LoginPage(Screen):
         else:
             if username == 'admin' and password == 'admin':
                 info.text = ''
-                if r_user.active:
-                    r_pass.disabled=False
-                if not r_user.active:
-                    user.text = ''
-                if not r_pass.active:
-                    pwd.text = ''
                 self.manager.current = "user"
 
             else:
