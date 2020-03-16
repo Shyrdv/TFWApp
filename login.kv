@@ -32,6 +32,8 @@ ScreenManagement:
             multiline: False
             halign: 'left'
             valign: 'middle'
+            write_tab: False
+            text: "admin"
             pos_hint: {"x":0.25,"top": 0.45}
             size_hint: 0.5,0.05
             #size_hint_y:None
@@ -44,10 +46,12 @@ ScreenManagement:
 
         TextInput:
             id: passw
+            text: "admin"
             hint_text: "Password.."
             font_size: 40
             multiline: False
             halign: 'left'
+            write_tab: False
             valign: 'middle'
             size_hint: 0.5,0.05
             pos_hint: {"x":0.25,"top": 0.35}
@@ -90,45 +94,51 @@ ScreenManagement:
                 orientation:'vertical'
                 BoxLayout:
 
+
                     id: av
-                    size: min(root.size)/2.5, min(root.size)/2.5
+
                     size_hint: None, None
                     pos_hint: {'center_x': .5, 'center_y': .5}
 
+                    canvas.after:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Ellipse:
+                            size: 150,150
+                            pos: [self.center_x - 75, self.center_y + 175]
+                            source: 'logo.png'
 
-                Label:
-                    text:'test'
-                    color: (0,0,0,1)
-                    size_hint_y: .05
+
+
             BoxLayout:
+                size: min(root.size)/2.5, min(root.size)/2.5
+
                 orientation: 'vertical'
                 Button:
                     text: 'Button'
-                    size_hint_y: 0.1
+                    size_hint_y: 0.07
                 Button:
                     text: 'Button'
-                    size_hint_y: 0.1
+                    size_hint_y: 0.07
                 Button:
                     text: 'Button'
-                    size_hint_y: 0.1
+                    size_hint_y: 0.07
                 Button:
                     text: 'Button'
-                    size_hint_y: 0.1
+                    size_hint_y: 0.07
                 Button:
                     text: 'Button'
-                    size_hint_y: 0.1
+                    size_hint_y: 0.07
                 Button:
                     text: 'Log Ud'
-                    size_hint_y: 0.1
+                    size_hint_y: 0.07
                     on_release: app.root.current = "login_page"
-                Label:
-                    text: 'Label'
-                    size_hint_y: 0.7
+
         GridLayout:
             cols: 1
             Button:
                 background_normal: ''
-                background_color: 1, 1, 1, 1
+                background_color: 1, 1, 1, 0
                 size_hint: (None,None)
                 size: (45,45)
                 on_release: nav.toggle_state()
@@ -138,7 +148,8 @@ ScreenManagement:
                     Rectangle:
                         size: 41,40
                         pos: self.pos
-                        source: 'menuicon.png'
+                        source: 'menu1.png'
+
             Label:
                 text: "Hva så man"
             Label:
