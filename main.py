@@ -24,11 +24,10 @@ db = mysql.connector.connect(
 mycursor = db.cursor()
 
 #mycursor.execute("CREATE TABLE Users (username VARCHAR(20) NOT NULL, password VARCHAR(100) NOT NULL, admin_rights boolean NOT NULL, userID int PRIMARY KEY AUTO_INCREMENT)")
-#hash_object = hashlib.sha256('daviid'.encode('utf-8'))
-#hex_dig = hash_object.hexdigest()
 
 
-#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("daviid", "daviid", True))
+
+#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("van", "van", True))
 #db.commit()
 
 
@@ -45,8 +44,14 @@ class LoginPage(Screen):
 
         username = user.text
         password = pwd.text
-        mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+password+"'")
+
+        hash_object = hashlib.sha256(password.encode('utf-8'))
+        hashedpw = hash_object.hexdigest()
+
+        mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+hashedpw+"'")
         results = mycursor.fetchall()
+
+
 
         if results:
             for i in results:
