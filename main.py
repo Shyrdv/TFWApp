@@ -13,14 +13,13 @@ import mysql.connector
 import hashlib
 
 
-
-
 db = mysql.connector.connect(
     host="localhost",
     user="root",
     passwd="ubunto123",
     database="TFW"
 )
+
 mycursor = db.cursor()
 
 #mycursor.execute("CREATE TABLE Users (username VARCHAR(20) NOT NULL, password VARCHAR(100) NOT NULL, admin_rights boolean NOT NULL, userID int PRIMARY KEY AUTO_INCREMENT)")
@@ -50,8 +49,6 @@ class LoginPage(Screen):
 
         mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+hashedpw+"'")
         results = mycursor.fetchall()
-
-
 
         if results:
             for i in results:
