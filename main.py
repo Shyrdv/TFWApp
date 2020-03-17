@@ -28,7 +28,7 @@ mycursor = db.cursor()
 #hex_dig = hash_object.hexdigest()
 
 
-#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("daviid", hex_dig, False))
+#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("daviid", "daviid", True))
 #db.commit()
 
 
@@ -45,16 +45,22 @@ class LoginPage(Screen):
 
         username = user.text
         password = pwd.text
+        mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+password+"'")
+        results = mycursor.fetchall()
 
+        if results:
+            for i in results:
+                print("Welcome "+i[0])
+                info.text = ''
+                self.manager.current = "user"
+            return ""
+
+        else:
+            print("Username and Password not found")
         if username == '' or password == '':
             info.text = '[color=#FF0000]Username and/ or Password required[/color]'
         else:
-            if username == 'admin' and password == 'admin':
-                info.text = ''
-                self.manager.current = "user"
-
-            else:
-                info.text = '[color=#FF0000]Invalid Username and/or Password[/color]'
+            info.text = '[color=#FF0000]Invalid Username and/or Password[/color]'
 
 
 class UserPage(Screen):
