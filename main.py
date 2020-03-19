@@ -10,7 +10,6 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.metrics import dp, sp
 import mysql.connector
-import hashlib
 
 
 db = mysql.connector.connect(
@@ -24,11 +23,9 @@ mycursor = db.cursor()
 #mycursor.execute("DROP TABLE Users")
 #mycursor.execute("CREATE TABLE Users (username VARCHAR(20) NOT NULL, password VARCHAR(100) NOT NULL, admin_rights boolean NOT NULL, userID int PRIMARY KEY AUTO_INCREMENT)")
 
-hash_object2 = hashlib.sha256('van'.encode('utf-8'))
-hashedpw2 = hash_object2.hexdigest()
 
-mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("van", hashedpw2, False))
-db.commit()
+#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("van", "van", False))
+#db.commit()
 
 
 class NavDemoWindow(NavigationDrawer):
@@ -45,10 +42,10 @@ class LoginPage(Screen):
         username = user.text
         password = pwd.text
 
-        hash_object = hashlib.sha256(password.encode('utf-8'))
-        hashedpw = hash_object.hexdigest()
+        #hash_object = hashlib.sha256(password.encode('utf-8'))
+        #hashedpw = hash_object.hexdigest()
 
-        mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+hashedpw+"'")
+        mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+password+"'")
         results = mycursor.fetchall()
 
         if results:
