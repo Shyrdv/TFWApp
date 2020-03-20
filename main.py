@@ -9,20 +9,17 @@ from kivy.garden.navigationdrawer import NavigationDrawer
 from kivy.config import Config
 from kivy.core.window import Window
 from kivy.metrics import dp, sp
-import sqlalchemy
-from sqlalchemy import create_engine
-from sqlalchemy import MetaData, Column, Table, ForeignKey
-from sqlalchemy import Integer, String
-from sqlalchemy.sql import select
 import mysql.connector
 
+db = mysql.connector.connect(
+    host="172.104.148.212",
+    user="daviid",
+    passwd="Ubuntob0I!",
+    database="Tfw",
+    auth_plugin="mysql_native_password"
+)
+mycursor = db.cursor()
 
-
-engine = create_engine('mysql+mysqlconnector://daviid:Ubuntob0I!@172.104.148.212/Tfw')
-
-connection = engine.raw_connection()
-
-mycursor = connection.cursor()
 
 
 class NavDemoWindow(NavigationDrawer):
@@ -38,8 +35,6 @@ class LoginPage(Screen):
 
         username = user.text
         password = pwd.text
-
-
 
         mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+password+"'")
         results = mycursor.fetchall()
@@ -97,7 +92,11 @@ if __name__ == '__main__':
 #mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("Daviid9400", hashedpw2, True))
 #db.commit()
 
+#engine = create_engine('mysql+mysqlconnector://daviid:Ubuntob0I!@172.104.148.212/Tfw')
 
+#connection = engine.raw_connection()
+
+#mycursor = connection.cursor()
 
 
 
