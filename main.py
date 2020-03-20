@@ -14,6 +14,8 @@ from sqlalchemy import create_engine
 from sqlalchemy import MetaData, Column, Table, ForeignKey
 from sqlalchemy import Integer, String
 from sqlalchemy.sql import select
+import mysql.connector
+
 
 
 engine = create_engine('mysql+mysqlconnector://daviid:Ubuntob0I!@172.104.148.212/Tfw')
