@@ -9,7 +9,6 @@ from kivy.garden.navigationdrawer import NavigationDrawer
 from kivy.config import Config
 from kivy.core.window import Window
 from kivy.metrics import dp, sp
-
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy import MetaData, Column, Table, ForeignKey
