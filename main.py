@@ -22,13 +22,13 @@ db = mysql.connector.connect(
 mycursor = db.cursor()
 
 
-
 class NavDemoWindow(NavigationDrawer):
     pass
 
 
 class LoginPage(Screen):
     def verify_credentials(self):
+
 
         user = self.ids.login
         pwd = self.ids.passw
@@ -43,15 +43,19 @@ class LoginPage(Screen):
         mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+hashedpw+"'")
         results = mycursor.fetchall()
 
-        if results:
+        if results and results[0][2] == 1:
+            for i in results:
+                print("Welcome "+i[0])
+                info.text = ''
+                self.manager.current = "admin"
+            return ""
+        elif results:
             for i in results:
                 print("Welcome "+i[0])
                 info.text = ''
                 self.manager.current = "user"
             return ""
 
-        else:
-            print("Username and Password not found")
         if username == '' or password == '':
             info.text = '[color=#FF0000]Username and/ or Password required[/color]'
         else:
@@ -59,6 +63,10 @@ class LoginPage(Screen):
 
 
 class UserPage(Screen):
+    pass
+
+
+class AdminPage(Screen):
     pass
 
 
@@ -92,8 +100,6 @@ if __name__ == '__main__':
 
 
 
-#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("Daviid9400", hashedpw2, True))
-#db.commit()
 
 #engine = create_engine('mysql+mysqlconnector://daviid:Ubuntob0I!@172.104.148.212/Tfw')
 

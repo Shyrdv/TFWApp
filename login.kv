@@ -4,6 +4,7 @@
 ScreenManagement:
     LoginPage:
     UserPage:
+    AdminPage:
 
 
 <LoginPage>:
@@ -156,3 +157,70 @@ ScreenManagement:
                 text: "Velkommen"
             Button:
                 text: "Turn around"
+
+
+
+<AdminPage>:
+    name: "admin"
+
+    NavDemoWindow:
+        id: nav
+        anim_type :'slide_above_simple'
+        side_panel_width: min(dp(350), 0.8*self.width)
+        BoxLayout:
+            spacing: 10
+            orientation:'vertical'
+            canvas.before:
+                Color:
+                    rgba: (1,1,1,1)
+                Rectangle:
+                    pos:self.pos
+                    size: self.size
+            BoxLayout:
+                orientation:'vertical'
+                BoxLayout:
+
+
+                    id: av
+
+                    size_hint: None, None
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+
+                    canvas.after:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Ellipse:
+                            size: 150,150
+                            pos: [self.center_x - 75, self.center_y + 175]
+                            source: 'logo.png'
+
+
+
+            BoxLayout:
+                size: min(root.size)/2.5, min(root.size)/2.5
+
+                orientation: 'vertical'
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Log Ud'
+                    size_hint_y: 0.07
+                    on_release: app.root.current = "login_page"
+
+
+        Label:
+            text: "Admin logget ind"
+
