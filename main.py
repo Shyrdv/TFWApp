@@ -90,9 +90,8 @@ class UserPage(Screen):
 
 
 class AdminPage(Screen):
-    def create_user(self):
 
-
+    pass
 
 class ScreenManagement(ScreenManager):
     pass
