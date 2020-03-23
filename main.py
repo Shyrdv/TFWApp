@@ -27,13 +27,25 @@ class NavDemoWindow(NavigationDrawer):
 
 
 class LoginPage(Screen):
-    def verify_credentials(self):
+    def if_active(self, state):
+        r_user = self.ids.rem_user
+        r_pass = self.ids.rem_pass
 
+        if state:
+
+            r_pass.disabled = False
+
+        else:
+            r_pass.disabled = True
+            r_pass.active = False
+
+    def verify_credentials(self):
 
         user = self.ids.login
         pwd = self.ids.passw
         info = self.ids.info
-
+        r_user = self.ids.rem_user
+        r_pass = self.ids.rem_pass
         username = user.text
         password = pwd.text
 
@@ -47,13 +59,24 @@ class LoginPage(Screen):
             for i in results:
                 print("Welcome "+i[0])
                 info.text = ''
+                if not r_user.active:
+                    self.ids.login.text = ""
+                if not r_pass.active:
+                    self.ids.passw.text = ""
+
                 self.manager.current = "admin"
+
             return ""
         elif results:
             for i in results:
                 print("Welcome "+i[0])
                 info.text = ''
+                if not r_user.active:
+                    self.ids.login.text = ""
+                if not r_pass.active:
+                    self.ids.passw.text = ""
                 self.manager.current = "user"
+
             return ""
 
         if username == '' or password == '':
@@ -67,7 +90,8 @@ class UserPage(Screen):
 
 
 class AdminPage(Screen):
-    pass
+    def create_user(self):
+
 
 
 class ScreenManagement(ScreenManager):
@@ -98,7 +122,8 @@ if __name__ == '__main__':
 #mycursor.execute("CREATE TABLE Users (username VARCHAR(20) NOT NULL, password VARCHAR(100) NOT NULL, admin_rights boolean NOT NULL, userID int PRIMARY KEY AUTO_INCREMENT)")
 
 
-
+#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("Daviid9400", hashedpw2, True))
+#db.commit()
 
 
 #engine = create_engine('mysql+mysqlconnector://daviid:Ubuntob0I!@172.104.148.212/Tfw')

@@ -34,20 +34,24 @@ ScreenManagement:
             halign: 'left'
             valign: 'middle'
             write_tab: False
-            text: "admin"
+
             pos_hint: {"x":0.25,"top": 0.45}
             size_hint: 0.5,0.05
             #size_hint_y:None
-
+        CheckBox:
+            id: rem_pass
+            disabled:True
+            size_hint: 0.07,0.07
+            pos_hint: {"x":0.77,"top": 0.35}
         CheckBox:
             id: rem_user
-
+            on_active: root.if_active(self.active)
             size_hint: 0.07,0.07
             pos_hint: {"x":0.77,"top": 0.45}
 
         TextInput:
             id: passw
-            text: "admin"
+
             hint_text: "Password.."
             font_size: 40
             multiline: False
@@ -58,11 +62,7 @@ ScreenManagement:
             pos_hint: {"x":0.25,"top": 0.35}
             password: True # hide password
 
-        CheckBox:
-            id: rem_pass
-            disabled:True
-            size_hint: 0.07,0.07
-            pos_hint: {"x":0.77,"top": 0.35}
+
 
         Button:
             id: btn2
@@ -70,9 +70,12 @@ ScreenManagement:
             font_size: 24
             size_hint: 0.3,0.07
             pos_hint: {"x":0.35,"top": 0.25}
-            on_press:
+            on_release:
                 app.root.transition = WipeTransition()
                 root.verify_credentials()
+
+
+
 
 
 <UserPage>:
@@ -133,7 +136,11 @@ ScreenManagement:
                 Button:
                     text: 'Log Ud'
                     size_hint_y: 0.07
-                    on_release: app.root.current = "login_page"
+                    on_release:
+                        app.root.current = "login_page"
+
+
+
 
         GridLayout:
             cols: 1
@@ -218,9 +225,17 @@ ScreenManagement:
                 Button:
                     text: 'Log Ud'
                     size_hint_y: 0.07
-                    on_release: app.root.current = "login_page"
+                    on_release:
+                        app.root.current = "login_page"
+
+
 
 
         Label:
             text: "Admin logget ind"
+
+        Button:
+            text: "Opret Bruger"
+            on_release:
+
 
