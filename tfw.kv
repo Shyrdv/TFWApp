@@ -229,15 +229,33 @@ ScreenManagement:
                     on_release:
                         app.root.current = "login_page"
 
-        Button:
-            text: 'Create User'
-            on_release: app.root.current = "create_user_page"
+        BoxLayout:
+
+
+            Button:
+                text: 'Create User'
+                on_release: app.root.current = "create_user_page"
+
+            Label:
+                id: db_count
+                text: root.get_count()
+
+            Button:
+                background_normal: ''
+                background_color: 1, 1, 1, 0
+                size_hint: (None,None)
+                size: (45,45)
+                on_release: nav.toggle_state()
+                canvas.after:
+                    Color:
+                        rgba: (1,1,1,0.5)
+                    Rectangle:
+                        size: 41,40
+                        pos: self.pos
+                        source: 'menu1.png'
 
 <CreateUserPage>:
     name: "create_user_page"
-
-
-
 
     FloatLayout:
 

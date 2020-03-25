@@ -89,8 +89,28 @@ class UserPage(Screen):
     pass
 
 
+
+
 class AdminPage(Screen):
-    pass
+
+
+
+
+
+    def countList(self,lst):
+        return len(lst)
+
+
+    def get_count(self):
+
+        mycursor.execute("SELECT * FROM Users")
+        results = mycursor.fetchall()
+        lst = results
+        return "Current usercount= " + str(self.countList(lst))
+
+
+
+
 
 
 class CreateUserPage(Screen):
@@ -132,6 +152,9 @@ kv_file = Builder.load_file('tfw.kv')
 class TFWApp(App):
     def builder(self):
         return kv_file
+
+
+
 
 
 if __name__ == '__main__':
