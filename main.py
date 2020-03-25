@@ -90,23 +90,25 @@ class UserPage(Screen):
 
 
 class AdminPage(Screen):
+    pass
 
+class CreateUserPage(Screen):
     pass
 
 class ScreenManagement(ScreenManager):
     pass
 
 
-kv_file = Builder.load_file('login.kv')
+kv_file = Builder.load_file('tfw.kv')
 
 
-class LoginApp(App):
+class TFWApp(App):
     def builder(self):
         return kv_file
 
 
 if __name__ == '__main__':
-    LoginApp().run()
+    TFWApp().run()
 
 
 

@@ -5,6 +5,7 @@ ScreenManagement:
     LoginPage:
     UserPage:
     AdminPage:
+    CreateUserPage:
 
 
 <LoginPage>:
@@ -228,12 +229,133 @@ ScreenManagement:
                     on_release:
                         app.root.current = "login_page"
 
+        Button:
+            text: 'Create User'
+            on_release: app.root.current = "create_user_page"
+
+<CreateUserPage>:
+    name: "create_user_page"
+
+    NavDemoWindow:
+        id: nav
+        anim_type :'slide_above_simple'
+        side_panel_width: min(dp(350), 0.8*self.width)
+        BoxLayout:
+            spacing: 10
+            orientation:'vertical'
+            canvas.before:
+                Color:
+                    rgba: (1,1,1,1)
+                Rectangle:
+                    pos:self.pos
+                    size: self.size
+            BoxLayout:
+                orientation:'vertical'
+                BoxLayout:
+
+
+                    id: av
+
+                    size_hint: None, None
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+
+                    canvas.after:
+                        Color:
+                            rgba: (1,1,1,1)
+                        Ellipse:
+                            size: 150,150
+                            pos: [self.center_x - 75, self.center_y + 175]
+                            source: 'logo.png'
 
 
 
+            BoxLayout:
+                size: min(root.size)/2.5, min(root.size)/2.5
+
+                orientation: 'vertical'
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Button'
+                    size_hint_y: 0.07
+                Button:
+                    text: 'Log Ud'
+                    size_hint_y: 0.07
+                    on_release:
+                        app.root.current = "login_page"
+
+
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.center_x -100, self.center_y
+                size: (200,200)
+                source: 'logo.png'
         Label:
-            text: "Admin logget ind"
+            id: info
+            text: ''
+            markup: True
+            pos_hint: {"x":0,"top": 0.98}
+
+        TextInput:
+            id: createuser_username
+            hint_text: "Enter Username.."
+            font_size: 40
+            multiline: False
+            halign: 'left'
+            valign: 'middle'
+            write_tab: False
+
+            pos_hint: {"x":0.25,"top": 0.45}
+            size_hint: 0.5,0.05
+            #size_hint_y:None
+
+        TextInput:
+            id: createuser_password
+
+            hint_text: "Enter Password.."
+            font_size: 40
+            multiline: False
+            halign: 'left'
+            write_tab: False
+            valign: 'middle'
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25,"top": 0.35}
+            password: True # hide password
+
+        TextInput:
+            id: createuser_verifypassword
+
+            hint_text: "Verify Password.."
+            font_size: 40
+            multiline: False
+            halign: 'left'
+            write_tab: False
+            valign: 'middle'
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25,"top": 0.25}
+            password: True # hide password
 
 
+
+        Button:
+            id: btn2
+            text: "Create User"
+            font_size: 24
+            size_hint: 0.3,0.07
+            pos_hint: {"x":0.35,"top": 0.15}
+            on_release:
+                app.root.transition = WipeTransition()
+                root.verify_credentials()
 
 
