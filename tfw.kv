@@ -161,6 +161,10 @@ ScreenManagement:
 
             Label:
                 text: "Hva så man"
+
+            TextInput:
+                id: createuser_username
+                hint_text: "Enter Username.."
             Label:
                 text: "Velkommen"
             Button:
@@ -252,13 +256,9 @@ ScreenManagement:
             BoxLayout:
                 orientation:'vertical'
                 BoxLayout:
-
-
                     id: av
-
                     size_hint: None, None
                     pos_hint: {'center_x': .5, 'center_y': .5}
-
                     canvas.after:
                         Color:
                             rgba: (1,1,1,1)
@@ -266,8 +266,6 @@ ScreenManagement:
                             size: 150,150
                             pos: [self.center_x - 75, self.center_y + 175]
                             source: 'logo.png'
-
-
 
             BoxLayout:
                 size: min(root.size)/2.5, min(root.size)/2.5
@@ -296,6 +294,7 @@ ScreenManagement:
 
 
         FloatLayout:
+
             canvas.before:
                 Rectangle:
                     pos: self.center_x -100, self.center_y
@@ -345,9 +344,6 @@ ScreenManagement:
                 size_hint: 0.5,0.05
                 pos_hint: {"x":0.25,"top": 0.25}
                 password: True # hide password
-
-
-
             Button:
                 id: create_user_btn
                 text: "Create User"
@@ -356,5 +352,18 @@ ScreenManagement:
                 pos_hint: {"x":0.35,"top": 0.15}
                 on_release:
                     root.create_user()
+            Button:
+                background_normal: ''
+                background_color: 1, 1, 1, 0
+                size_hint: (None,None)
+                size: (45,45)
+                on_release: nav.toggle_state()
+                canvas.after:
+                    Color:
+                        rgba: (1,1,1,0.5)
+                    Rectangle:
+                        size: 41,40
+                        pos: self.pos
+                        source: 'menu1.png'
 
 
