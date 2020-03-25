@@ -92,8 +92,35 @@ class UserPage(Screen):
 class AdminPage(Screen):
     pass
 
+
 class CreateUserPage(Screen):
-    pass
+
+    def create_user(self):
+        user = self.ids.createuser_username
+        pwd = self.ids.createuser_password
+        verifypwd = self.ids.createuser_verifypassword
+        info = self.ids.info_create_user
+        username = user.text
+        password = pwd.text
+        verifypassword = verifypwd.text
+
+        mycursor.execute("SELECT * FROM Users WHERE username = '" +username+"'")
+        results = mycursor.fetchall()
+
+        if results:
+            info.text = '[color=#FF0000]Username already exists![/color]'
+        if not results:
+            if verifypassword == password:
+                mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", (username, hashlib.sha256(password.encode('utf-8')).hexdigest(), False))
+                db.commit()
+                info.text = '[color=#00FF00]User Created![/color]'
+            else:
+                info.text = '[color=#FF0000]Passwords discrepancy![/color]'
+
+
+
+
+
 
 class ScreenManagement(ScreenManager):
     pass

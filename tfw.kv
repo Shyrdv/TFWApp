@@ -295,67 +295,66 @@ ScreenManagement:
                         app.root.current = "login_page"
 
 
-    FloatLayout:
-        canvas.before:
-            Rectangle:
-                pos: self.center_x -100, self.center_y
-                size: (200,200)
-                source: 'logo.png'
-        Label:
-            id: info
-            text: ''
-            markup: True
-            pos_hint: {"x":0,"top": 0.98}
+        FloatLayout:
+            canvas.before:
+                Rectangle:
+                    pos: self.center_x -100, self.center_y
+                    size: (200,200)
+                    source: 'logo.png'
+            Label:
+                id: info_create_user
+                text: ''
+                markup: True
+                pos_hint: {"x":0,"top": 0.98}
 
-        TextInput:
-            id: createuser_username
-            hint_text: "Enter Username.."
-            font_size: 40
-            multiline: False
-            halign: 'left'
-            valign: 'middle'
-            write_tab: False
+            TextInput:
+                id: createuser_username
+                hint_text: "Enter Username.."
+                font_size: 40
+                multiline: False
+                halign: 'left'
+                valign: 'middle'
+                write_tab: False
 
-            pos_hint: {"x":0.25,"top": 0.45}
-            size_hint: 0.5,0.05
-            #size_hint_y:None
+                pos_hint: {"x":0.25,"top": 0.45}
+                size_hint: 0.5,0.05
+                #size_hint_y:None
 
-        TextInput:
-            id: createuser_password
+            TextInput:
+                id: createuser_password
 
-            hint_text: "Enter Password.."
-            font_size: 40
-            multiline: False
-            halign: 'left'
-            write_tab: False
-            valign: 'middle'
-            size_hint: 0.5,0.05
-            pos_hint: {"x":0.25,"top": 0.35}
-            password: True # hide password
+                hint_text: "Enter Password.."
+                font_size: 40
+                multiline: False
+                halign: 'left'
+                write_tab: False
+                valign: 'middle'
+                size_hint: 0.5,0.05
+                pos_hint: {"x":0.25,"top": 0.35}
+                password: True # hide password
 
-        TextInput:
-            id: createuser_verifypassword
+            TextInput:
+                id: createuser_verifypassword
 
-            hint_text: "Verify Password.."
-            font_size: 40
-            multiline: False
-            halign: 'left'
-            write_tab: False
-            valign: 'middle'
-            size_hint: 0.5,0.05
-            pos_hint: {"x":0.25,"top": 0.25}
-            password: True # hide password
+                hint_text: "Verify Password.."
+                font_size: 40
+                multiline: False
+                halign: 'left'
+                write_tab: False
+                valign: 'middle'
+                size_hint: 0.5,0.05
+                pos_hint: {"x":0.25,"top": 0.25}
+                password: True # hide password
 
 
 
-        Button:
-            id: btn2
-            text: "Create User"
-            font_size: 24
-            size_hint: 0.3,0.07
-            pos_hint: {"x":0.35,"top": 0.15}
-            on_release:
-                app.root.transition = WipeTransition()
-                root.verify_credentials()
+            Button:
+                id: create_user_btn
+                text: "Create User"
+                font_size: 24
+                size_hint: 0.3,0.07
+                pos_hint: {"x":0.35,"top": 0.15}
+                on_release:
+                    root.create_user()
 
 
