@@ -82,21 +82,16 @@ ScreenManagement:
 <UserPage>:
     name: "user"
 
-
-
-
-
-
     GridLayout:
         cols: 1
-
-
         Label:
             text: "Hva så man"
         Label:
             text: "Velkommen"
         Button:
             text: "Turn around"
+            on_release:
+                app.root.current="login_page"
 
 
 
@@ -106,6 +101,13 @@ ScreenManagement:
 
 
     BoxLayout:
+        Button:
+
+
+
+            text: "go back mofo"
+            on_release:
+                app.root.current = "login_page"
 
 
         Button:
