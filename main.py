@@ -21,8 +21,6 @@ db = mysql.connector.connect(
 mycursor = db.cursor()
 
 
-class NavDemoWindow(NavigationDrawer):
-    pass
 
 
 class LoginPage(Screen):
@@ -92,13 +90,8 @@ class UserPage(Screen):
 
 class AdminPage(Screen):
 
-
-
-
-
     def countList(self,lst):
         return len(lst)
-
 
     def get_count(self):
 
@@ -106,10 +99,6 @@ class AdminPage(Screen):
         results = mycursor.fetchall()
         lst = results
         return "Current usercount= " + str(self.countList(lst))
-
-
-
-
 
 
 class CreateUserPage(Screen):
@@ -137,10 +126,6 @@ class CreateUserPage(Screen):
                 info.text = '[color=#FF0000]Passwords discrepancy![/color]'
 
 
-
-
-
-
 class ScreenManagement(ScreenManager):
     pass
 
@@ -151,9 +136,6 @@ kv_file = Builder.load_file('tfw.kv')
 class TFWApp(App):
     def builder(self):
         return kv_file
-
-
-
 
 
 if __name__ == '__main__':
