@@ -6,7 +6,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.config import Config
-from kivy.core.window import Window
+
 from kivy.metrics import dp, sp
 import mysql.connector
 import hashlib
@@ -86,19 +86,12 @@ class UserPage(Screen):
     pass
 
 
-
-
 class AdminPage(Screen):
 
-    def countList(self,lst):
-        return len(lst)
-
     def get_count(self):
-
-        mycursor.execute("SELECT * FROM Users")
-        results = mycursor.fetchall()
-        lst = results
-        return "Current usercount= " + str(self.countList(lst))
+        mycursor.execute("SELECT Count(*) FROM Users")
+        results = mycursor.fetchone()[0]
+        return "Current user count= " + str(results)
 
 
 class CreateUserPage(Screen):

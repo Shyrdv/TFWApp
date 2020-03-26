@@ -124,13 +124,44 @@ ScreenManagement:
     name: "create_user_page"
 
     FloatLayout:
-
-
         canvas.before:
             Rectangle:
                 pos: self.center_x -100, self.center_y
                 size: (200,200)
                 source: 'logo.png'
+
+
+
+        GridLayout:
+
+            pos_hint: {"x":0,"top": 0.06}
+            cols: 3
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 1
+                Label:
+                    text: ""
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    text: "test"
+                Button:
+                    text: "test2"
+                Button:
+                    text: "test3"
+                Button:
+                    text: "test4"
+                Button:
+                    text: "test5"
+            GridLayout:
+                cols: 1
+                Label:
+                    text: ""
+
+
+
+
         Label:
             id: info_create_user
             text: ''
@@ -186,7 +217,7 @@ ScreenManagement:
         Button:
 
             size_hint: (None,None)
-            size: (125,75)
+            size: (100,50)
             text: "go back mofo"
             on_release:
                 app.root.current = "admin"
