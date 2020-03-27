@@ -87,6 +87,8 @@ class UserPage(Screen):
 
 
 class AdminPage(Screen):
+    def dostuff(self):
+        print("IT WORKS YES")
 
     def get_count(self):
         mycursor.execute("SELECT Count(*) FROM Users")
