@@ -6,7 +6,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.config import Config
-
+from kivy.core.window import Window
 from kivy.metrics import dp, sp
 import mysql.connector
 import hashlib
@@ -112,7 +112,7 @@ class CreateUserPage(Screen):
             info.text = '[color=#FF0000]Username already exists![/color]'
         if not results:
             if verifypassword == password:
-                mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", (username, hashlib.sha256(password.encode('utf-8')).hexdigest(), False))
+                mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", (username, hashlib.sha256(password.encode('utf-8')).hexdigest(), True))
                 db.commit()
                 info.text = '[color=#00FF00]User Created![/color]'
             else:
@@ -120,7 +120,23 @@ class CreateUserPage(Screen):
 
 
 class ScreenManagement(ScreenManager):
-    pass
+    def __init__(self, **kwargs):
+        super(ScreenManagement, self).__init__(**kwargs)
+        Window.bind(on_keyboard=self.on_key)
+
+    def on_key(self, window, key, *args):
+        if key == 27:  # the esc key
+            if self.current_screen.name == "login_page":
+                return False  # exit the app from this page
+            elif self.current_screen.name == "admin":
+                self.current = "login_page"
+                return True  # do not exit the app
+            elif self.current_screen.name == "user":
+                self.current = "login_page"
+                return True  # do not exit the app
+            elif self.current_screen.name == "create_user_page":
+                self.current = "admin"
+                return True  # do not exit the app
 
 
 kv_file = Builder.load_file('tfw.kv')
