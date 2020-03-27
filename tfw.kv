@@ -82,13 +82,32 @@ ScreenManagement:
 <UserPage>:
     name: "user"
 
-    GridLayout:
-        cols: 1
-        Label:
-            text: "Hva så man"
-        Label:
-            text: "Velkommen"
+    FloatLayout:
+        GridLayout:
+
+            pos_hint: {"x":0,"top": 0.06}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    text: "test"
+                Button:
+                    text: "test2"
+                Button:
+                    text: "test3"
+                Button:
+                    text: "test4"
+                Button:
+                    text: 'test5'
+
+
         Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
             text: "Turn around"
             on_release:
                 app.root.current="login_page"
@@ -98,23 +117,52 @@ ScreenManagement:
 <AdminPage>:
     name: "admin"
 
+    FloatLayout:
 
-
-    BoxLayout:
         Button:
-
-
-
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
             text: "go back mofo"
             on_release:
                 app.root.current = "login_page"
+        GridLayout:
+
+            pos_hint: {"x":0,"top": 0.06}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    canvas.after:
+                        Rectangle:
+                            pos: 20,20
+                            size: (40,40)
+                            source: 'logo.png'
+                    text: "test"
+                Button:
+                    text: "test2"
+                Button:
+                    text: "test3"
+                Button:
+                    text: "test4"
+                Button:
+                    text: "test5"
 
 
         Button:
+            pos_hint: {"x":0.25,"top": 0.45}
+            size_hint: (None,None)
+            size: (100,70)
             text: 'Create User'
             on_release: app.root.current = "create_user_page"
 
         Label:
+            pos_hint: {"x":0.25,"top": 0.65}
+            size_hint: (None,None)
+            size: (100,70)
             id: db_count
             text: root.get_count()
 
@@ -135,12 +183,9 @@ ScreenManagement:
         GridLayout:
 
             pos_hint: {"x":0,"top": 0.06}
-            cols: 3
+            cols: 1
             orientation: 'horizontal'
-            GridLayout:
-                cols: 1
-                Label:
-                    text: ""
+
             GridLayout:
                 cols: 5
                 orientation: 'horizontal'
@@ -154,10 +199,7 @@ ScreenManagement:
                     text: "test4"
                 Button:
                     text: "test5"
-            GridLayout:
-                cols: 1
-                Label:
-                    text: ""
+
 
 
 
@@ -215,10 +257,10 @@ ScreenManagement:
             on_release:
                 root.create_user()
         Button:
-
+            pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
-            size: (100,50)
-            text: "go back mofo"
+            size: (80,40)
+            text: "Back"
             on_release:
                 app.root.current = "admin"
 
