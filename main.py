@@ -21,9 +21,23 @@ db = mysql.connector.connect(
 mycursor = db.cursor()
 
 
+class username1:
+    def __init__(self, name="Guest"):
+        self.__name=name
+
+    def setname(self, name):
+        print("name was set" + name)
+        self.__name=name
+
+    def getname(self):
+        return self.__name
 
 
 class LoginPage(Screen):
+
+    def get_username(self):
+        return self.ids.login.text
+
     def if_active(self, state):
         r_user = self.ids.rem_user
         r_pass = self.ids.rem_pass
@@ -46,6 +60,8 @@ class LoginPage(Screen):
         username = user.text
         password = pwd.text
 
+
+
         hash_object = hashlib.sha256(password.encode('utf-8'))
         hashedpw = hash_object.hexdigest()
 
@@ -66,6 +82,11 @@ class LoginPage(Screen):
             return ""
         elif results:
             for i in results:
+                us1 = username1()
+                us1.setname(i[0])
+                userpage = UserPage()
+                userpage.changename(i[0])
+
                 print("Welcome "+i[0])
                 info.text = ''
                 if not r_user.active:
@@ -82,7 +103,19 @@ class LoginPage(Screen):
             info.text = '[color=#FF0000]Invalid Username and/or Password[/color]'
 
 
-class UserPage(Screen):
+class UserPage(Screen, username1):
+
+    def changename(self, username):
+        print("called")
+        self.ids.label1.text = username
+
+
+
+
+
+
+
+class KneegrabPage(Screen):
     pass
 
 
@@ -120,7 +153,7 @@ class CreateUserPage(Screen):
             else:
                 info.text = '[color=#FF0000]Passwords discrepancy![/color]'
 
-#ass
+
 
 
 class ScreenManagement(ScreenManager):
@@ -147,6 +180,7 @@ kv_file = Builder.load_file('tfw.kv')
 
 
 class TFWApp(App):
+
     def builder(self):
         return kv_file
 

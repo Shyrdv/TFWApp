@@ -6,6 +6,7 @@ ScreenManagement:
     UserPage:
     AdminPage:
     CreateUserPage:
+    KneegrabPage:
 
 
 <LoginPage>:
@@ -76,15 +77,50 @@ ScreenManagement:
                 root.verify_credentials()
 
 
-# SICK NOTE 2
+
 
 
 <UserPage>:
     name: "user"
 
     FloatLayout:
-        GridLayout:
 
+        GridLayout:
+            pos_hint: {"top": 1.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+                Label:
+                    id: label1
+                    text: ""
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+
+                Button:
+                    text: "Kneegrabs / Armstrækkere"
+                    font_size: 28
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.35}
+                    on_release:
+                        app.root.current="KneegrabPage"
+
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+                Label:
+                    text: "1"
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+                Label:
+                    text: "1"
+
+
+
+        GridLayout:
             pos_hint: {"x":0,"top": 0.045}
             cols: 1
             orientation: 'horizontal'
@@ -93,7 +129,7 @@ ScreenManagement:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-                    on_press: root.dostuff()
+
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -108,7 +144,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -123,7 +159,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -138,7 +174,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -153,7 +189,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -458,5 +494,102 @@ ScreenManagement:
             on_release:
                 app.root.current = "admin"
 
+<KneegrabPage>:
+    name: "KneegrabPage"
+
+    FloatLayout:
+
+        GridLayout:
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Turn around"
+            on_release:
+                app.root.current="login_page"
 
 
