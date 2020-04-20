@@ -1,5 +1,4 @@
 import webbrowser
-
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
