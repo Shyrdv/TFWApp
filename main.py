@@ -176,7 +176,6 @@ class ScreenManagement(ScreenManager):
                 self.current = "admin"
                 return True  # do not exit the app
 
-#ass
 
 class TFWApp(App):
 
