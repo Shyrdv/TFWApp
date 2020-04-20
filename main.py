@@ -1,4 +1,7 @@
+import webbrowser
+
 from kivy.app import App
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang.builder import Builder
 from kivy.properties import ObjectProperty, StringProperty
@@ -10,6 +13,7 @@ from kivy.core.window import Window
 from kivy.metrics import dp, sp
 import mysql.connector
 import hashlib
+
 
 db = mysql.connector.connect(
     host="172.104.148.212",
@@ -43,7 +47,6 @@ class LoginPage(Screen):
         r_pass = self.ids.rem_pass
 
         if state:
-
             r_pass.disabled = False
 
         else:
@@ -84,8 +87,7 @@ class LoginPage(Screen):
             for i in results:
                 us1 = username1()
                 us1.setname(i[0])
-                userpage = UserPage()
-                userpage.changename(i[0])
+
 
                 print("Welcome "+i[0])
                 info.text = ''
@@ -105,15 +107,15 @@ class LoginPage(Screen):
 
 class UserPage(Screen, username1):
 
-    def changename(self, username):
-        print("called")
-        self.ids.label1.text = username
+    def openWarriorTracker(self):
+        webbrowser.open("https://www.warriortracker.com/")
 
 
+class WarriorsManualPage(Screen):
+    pass
 
-
-
-
+class WarriorsManualPage1(Screen):
+    pass
 
 class KneegrabPage(Screen):
     pass
