@@ -113,8 +113,14 @@ class UserPage(Screen, username1):
 class WarriorsManualPage(Screen):
     pass
 
+
 class WarriorsManualPage1(Screen):
     pass
+
+
+class WarriorsManualPage2(Screen):
+    pass
+
 
 class KneegrabPage(Screen):
     pass
