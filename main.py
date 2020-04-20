@@ -178,13 +178,11 @@ class ScreenManagement(ScreenManager):
                 return True  # do not exit the app
 
 
-kv_file = Builder.load_file('tfw.kv')
-
 
 class TFWApp(App):
 
     def builder(self):
-        return kv_file
+        pass
 
 
 if __name__ == '__main__':
