@@ -144,81 +144,64 @@ ScreenManagement:
             pos_hint: {"x":0,"top": 0.045}
             cols: 1
             orientation: 'horizontal'
-
             GridLayout:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
@@ -523,83 +506,64 @@ ScreenManagement:
             pos_hint: {"x":0,"top": 0.045}
             cols: 1
             orientation: 'horizontal'
-
-
-
             GridLayout:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
@@ -669,81 +633,64 @@ ScreenManagement:
             pos_hint: {"x":0,"top": 0.045}
             cols: 1
             orientation: 'horizontal'
-
             GridLayout:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
@@ -789,81 +736,64 @@ ScreenManagement:
             pos_hint: {"x":0,"top": 0.045}
             cols: 1
             orientation: 'horizontal'
-
             GridLayout:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
@@ -909,81 +839,64 @@ ScreenManagement:
             pos_hint: {"x":0,"top": 0.045}
             cols: 1
             orientation: 'horizontal'
-
             GridLayout:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
@@ -1029,81 +942,64 @@ ScreenManagement:
             pos_hint: {"x":0,"top": 0.045}
             cols: 1
             orientation: 'horizontal'
-
             GridLayout:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
                     id: "btn1"
                     text: "test"
-
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-                    on_press:
                     background_color: (1,1,1,0.3)
-
-                    id: "btn1"
-                    text: "test"
-
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
                     Image:
                         source : 'icon64.png'
                         size: 70,70
-
                         allow_stretch: True
                         keep_ratio: False
                         norm_image_size:
