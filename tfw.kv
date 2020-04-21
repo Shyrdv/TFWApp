@@ -6,6 +6,8 @@ ScreenManagement:
     UserPage:
     AdminPage:
     CreateUserPage:
+    DeleteUserPage:
+    UpdateUserPage:
     KneegrabPage:
     WarriorsManualPage:
     WarriorsManualPage1:
@@ -230,6 +232,21 @@ ScreenManagement:
             text: "go back mofo"
             on_release:
                 app.root.current = "login_page"
+
+        Button:
+            pos_hint: {"x":0.25,"top": 0.65}
+            size_hint: (None,None)
+            size: (100,70)
+            text: 'Delete User'
+            on_release: app.root.current = "delete_user_page"
+
+        Button:
+            pos_hint: {"x":0.25,"top": 0.25}
+            size_hint: (None,None)
+            size: (100,70)
+            text: 'Update User'
+            on_release: app.root.current = "update_user_page"
+
         GridLayout:
 
             pos_hint: {"x":0,"top": 0.045}
@@ -1017,3 +1034,301 @@ ScreenManagement:
             text: "Turn around"
             on_release:
                 app.root.current="WarriorsManualPage"
+
+<DeleteUserPage>:
+    name: "delete_user_page"
+
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.center_x -125, self.center_y
+                size: (250,250)
+                source: 'logo.png'
+
+
+
+        GridLayout:
+
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+
+
+
+        Label:
+            id: info_delete_user
+            text: ''
+            markup: True
+            pos_hint: {"x":0,"top": 0.98}
+
+        TextInput:
+            id: del_username
+            hint_text: "Enter Username.."
+            font_size: 42
+            multiline: False
+            halign: 'left'
+            valign: 'middle'
+            write_tab: False
+
+            pos_hint: {"x":0.25,"top": 0.45}
+            size_hint: 0.5,0.05
+            #size_hint_y:None
+
+        Button:
+            id: delete_user_btn
+            text: "Delete User"
+            font_size: 36
+            size_hint: 0.3,0.07
+            pos_hint: {"x":0.35,"top": 0.15}
+            on_release:
+                root.delete_user()
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Back"
+            on_release:
+                app.root.current = "admin"
+
+
+<UpdateUserPage>:
+    name: "update_user_page"
+
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.center_x -125, self.center_y
+                size: (250,250)
+                source: 'logo.png'
+
+
+
+        GridLayout:
+
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    on_press: root.dostuff()
+                    background_color: (1,1,1,0.3)
+                    background_down: "logo.png"
+                    id: "btn1"
+                    text: "test"
+
+                    Image:
+                        source : 'icon64.png'
+                        size: 70,70
+
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+
+
+
+        Label:
+            id: info_create_user
+            text: ''
+            markup: True
+            pos_hint: {"x":0,"top": 0.98}
+
+        TextInput:
+            id: createuser_username
+            hint_text: "Enter Username.."
+            font_size: 42
+            multiline: False
+            halign: 'left'
+            valign: 'middle'
+            write_tab: False
+
+            pos_hint: {"x":0.25,"top": 0.45}
+            size_hint: 0.5,0.05
+            #size_hint_y:None
+
+        TextInput:
+            id: createuser_password
+
+            hint_text: "Enter Password.."
+            font_size: 42
+            multiline: False
+            halign: 'left'
+            write_tab: False
+            valign: 'middle'
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25,"top": 0.35}
+            password: True # hide password
+
+        TextInput:
+            id: createuser_verifypassword
+
+            hint_text: "Verify Password.."
+            font_size: 42
+            multiline: False
+            halign: 'left'
+            write_tab: False
+            valign: 'middle'
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25,"top": 0.25}
+            password: True # hide password
+        Button:
+            id: create_user_btn
+            text: "Create User"
+            font_size: 36
+            size_hint: 0.3,0.07
+            pos_hint: {"x":0.35,"top": 0.15}
+            on_release:
+                root.create_user()
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Back"
+            on_release:
+                app.root.current = "admin"
