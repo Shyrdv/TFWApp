@@ -128,8 +128,6 @@ class WarriorsManualPage3(Screen):
 
 
 class KneegrabPage(Screen):
-
-
     pass
 
 
@@ -188,6 +186,22 @@ class ScreenManagement(ScreenManager):
             elif self.current_screen.name == "create_user_page":
                 self.current = "admin"
                 return True  # do not exit the app
+            elif self.current_screen.name == "KneegrabPage":
+                self.current = "user"
+                return True  # do not exit the app
+            elif self.current_screen.name == "WarriorsManualPage":
+                self.current = "user"
+                return True  # do not exit the app
+            elif self.current_screen.name == "WarriorsManualPage1":
+                self.current = "WarriorsManualPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "WarriorsManualPage2":
+                self.current = "WarriorsManualPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "WarriorsManualPage3":
+                self.current = "WarriorsManualPage"
+                return True  # do not exit the app
+
 
 
 class TFWApp(App):
