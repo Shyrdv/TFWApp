@@ -28,6 +28,7 @@ class username1:
     def __init__(self, name="Guest"):
         self.__name=name
 
+
     def setname(self, name):
         print("name was set" + name)
         self.__name=name
@@ -122,7 +123,13 @@ class WarriorsManualPage2(Screen):
     pass
 
 
+class WarriorsManualPage3(Screen):
+    pass
+
+
 class KneegrabPage(Screen):
+
+
     pass
 
 
