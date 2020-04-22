@@ -522,6 +522,54 @@ ScreenManagement:
 
     FloatLayout:
 
+        Label:
+            text: 'PR I Arms'
+            font_size: 24
+            pos_hint: {"x":0.2,"top": 1.25}
+        Label:
+            text: 'PR i Knee'
+            font_size: 24
+            pos_hint: {"x":-0.2,"top": 1.250}
+        Label:
+            text: '24'
+            font_size: 42
+            pos_hint: {"x":0.2,"top": 1.17}
+        Label:
+            text: '29'
+            font_size: 42
+            pos_hint: {"x":-0.2,"top": 1.17}
+
+        TextInput:
+            font_size: 42
+            multiline: False
+            halign: 'left'
+            valign: 'middle'
+            pos_hint: {"x":0.25,"top": 0.45}
+            size_hint: 0.5,0.05
+            #size_hint_y:None
+            hint_text: "pr i arms.."
+
+        TextInput:
+            font_size: 42
+            multiline: False
+            halign: 'left'
+            valign: 'middle'
+            size_hint: 0.5,0.05
+            pos_hint: {"x":0.25,"top": 0.35}
+            hint_text: "pr i knees.."
+
+        Button:
+            id: btn3
+            text: "Save PR"
+            font_size: 36
+            size_hint: 0.3,0.07
+            pos_hint: {"x":0.35,"top": 0.25}
+            on_release:
+
+
+
+
+
         GridLayout:
             pos_hint: {"x":0,"top": 0.045}
             cols: 1
@@ -1060,7 +1108,7 @@ ScreenManagement:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1075,7 +1123,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1090,7 +1138,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1105,7 +1153,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1120,7 +1168,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1197,7 +1245,7 @@ ScreenManagement:
                 cols: 5
                 orientation: 'horizontal'
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1212,7 +1260,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * .5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1227,7 +1275,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 1.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1242,7 +1290,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 2.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
@@ -1257,7 +1305,7 @@ ScreenManagement:
                         norm_image_size:
                         x: self.parent.width * 3.5 - self.width * .5
                 Button:
-                    on_press: root.dostuff()
+                    on_press:
                     background_color: (1,1,1,0.3)
                     background_down: "logo.png"
                     id: "btn1"
