@@ -101,6 +101,8 @@ ScreenManagement:
                 Label:
                     id: label1
                     text: ""
+                    font_size: 58
+
             GridLayout:
                 cols: 1
                 orientation: 'horizontal'
@@ -112,6 +114,7 @@ ScreenManagement:
                     pos_hint: {"x":0.25,"top": 0.35}
                     on_release:
                         app.root.current="KneegrabPage"
+                        on_release: root.getUsername()
 
                 Button:
                     text: "Warriors Manual"

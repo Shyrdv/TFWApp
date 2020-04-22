@@ -63,7 +63,9 @@ class LoginPage(Screen):
         username = user.text
         password = pwd.text
 
-
+        userfile = open("user.txt", "w")
+        userfile.write(username)
+        userfile.close()
 
         hash_object = hashlib.sha256(password.encode('utf-8'))
         hashedpw = hash_object.hexdigest()
@@ -105,10 +107,15 @@ class LoginPage(Screen):
             info.text = '[color=#FF0000]Invalid Username and/or Password[/color]'
 
 
-class UserPage(Screen, username1):
+class UserPage(Screen):
 
     def openWarriorTracker(self):
         webbrowser.open("https://www.warriortracker.com/")
+
+    def getUsername(self):
+        with open("user.txt") as f:
+            contents = f.read()
+            self.ids.label1.text = "Velkommen " + str(contents)
 
 
 class WarriorsManualPage(Screen):
@@ -206,6 +213,7 @@ class UpdateUserPage(Screen):
                 info.text = '[color=#00FF00]User Created![/color]'
             else:
                 info.text = '[color=#FF0000]Passwords discrepancy![/color]'
+
 
 class ScreenManagement(ScreenManager):
     def __init__(self, **kwargs):
