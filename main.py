@@ -133,6 +133,9 @@ class WarriorsManualPage2(Screen):
 class WarriorsManualPage3(Screen):
     pass
 
+class WarriorsManualPage4(Screen):
+    pass
+
 
 class KneegrabPage(Screen):
     pass
@@ -252,6 +255,9 @@ class ScreenManagement(ScreenManager):
                 self.current = "WarriorsManualPage"
                 return True  # do not exit the app
             elif self.current_screen.name == "WarriorsManualPage3":
+                self.current = "WarriorsManualPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "WarriorsManualPage4":
                 self.current = "WarriorsManualPage"
                 return True  # do not exit the app
 

@@ -13,6 +13,7 @@ ScreenManagement:
     WarriorsManualPage1:
     WarriorsManualPage2:
     WarriorsManualPage3:
+    WarriorsManualPage4:
 
 
 <LoginPage>:
@@ -87,6 +88,12 @@ ScreenManagement:
 
 
 <UserPage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bg-2.png'
+
     name: "user"
 
     FloatLayout:
@@ -518,6 +525,11 @@ ScreenManagement:
                 app.root.current = "admin"
 
 <KneegrabPage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bg.png'
     name: "KneegrabPage"
 
     FloatLayout:
@@ -666,6 +678,14 @@ ScreenManagement:
                 orientation: 'horizontal'
 
                 Button:
+                    text: "Velkommen"
+                    font_size: 28
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.35}
+                    on_release:
+                        app.root.current="WarriorsManualPage4"
+
+                Button:
                     text: "Nutrition Page"
                     font_size: 28
                     size_hint: 0.3,0.07
@@ -688,6 +708,7 @@ ScreenManagement:
                     pos_hint: {"x":0.25,"top": 0.35}
                     on_release:
                         app.root.current="WarriorsManualPage3"
+
 
 
 
@@ -1000,6 +1021,109 @@ ScreenManagement:
                 ScrollView:
                     Image:
                         source: 'Section3.png'
+                        size_hint_x: 1
+                        size_hint_y: None
+                        text_size : self.width,None
+                        height: self.texture_size[1]
+
+
+
+
+
+        GridLayout:
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
+                    Image:
+                        source : 'icons/homeicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/statsicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/evalicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/leaderboardicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
+                    Image:
+                        source : 'icons/logouticon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Turn around"
+            on_release:
+                app.root.current="WarriorsManualPage"
+
+<WarriorsManualPage4>:
+    name: "WarriorsManualPage4"
+
+    FloatLayout:
+        GridLayout:
+            pos_hint: {"top": 1.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                padding: 10,100
+                cols: 1
+                orientation: 'horizontal'
+
+                ScrollView:
+                    Image:
+                        source: 'Section4.png'
                         size_hint_x: 1
                         size_hint_y: None
                         text_size : self.width,None
