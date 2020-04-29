@@ -21,7 +21,7 @@ db = mysql.connector.connect(
     database="Tfw",
     auth_plugin="mysql_native_password"
 )
-mycursor = db.cursor()
+mycursor = db.cursor(buffered=True)
 
 
 class username1:
