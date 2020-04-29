@@ -146,11 +146,16 @@ class KneegrabPage(Screen):
         mycursor.execute("SELECT UserId From Users WHERE Username='"+username+"'")
         results = mycursor.fetchone()
 
-        if results:
-            mycursor.execute("UPDATE Prs SET KneePR= (%s), ArmPR =(%s) WHERE UserId = '"+results[0]+"'", (int(labelknee.text),int(labelarm.text)))
+        mycursor.execute("SELECT * From Prs WHERE UserId='" + str(results[0]) + "'")
+        results1 = mycursor.fetchone()
+
+
+
+        if results1:
+            mycursor.execute("UPDATE Prs SET KneePR='"+(str(labelknee.text))+"', ArmPR='"+(str(labelarm.text))+"' WHERE Userid = '"+str(results[0])+"'")
             db.commit()
 
-        if not results:
+        if not results1:
             mycursor.execute("INSERT INTO Prs  VALUES (%s,%s,%s)",
                          (int(labelknee.text),int(labelarm.text), results[0]))
             db.commit()
