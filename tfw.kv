@@ -544,12 +544,12 @@ ScreenManagement:
             pos_hint: {"x":-0.2,"top": 1.250}
         Label:
             id: lblarm
-            text: ''
+            text: root.loadArmPR()
             font_size: 42
             pos_hint: {"x":0.2,"top": 1.17}
         Label:
             id: lblknee
-            text: ''
+            text: root.loadKneePR()
             font_size: 42
             pos_hint: {"x":-0.2,"top": 1.17}
 

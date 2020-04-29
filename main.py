@@ -141,6 +141,8 @@ class KneegrabPage(Screen):
     def savePR(self):
         labelknee = self.ids.prknee
         labelarm = self.ids.prarms
+        lblarm = self.ids.lblarm
+        lblknee= self.ids.lblknee
         username = open("user.txt").read()
 
         mycursor.execute("SELECT UserId From Users WHERE Username='"+username+"'")
@@ -149,11 +151,12 @@ class KneegrabPage(Screen):
         mycursor.execute("SELECT * From Prs WHERE UserId='" + str(results[0]) + "'")
         results1 = mycursor.fetchone()
 
-
-
         if results1:
             mycursor.execute("UPDATE Prs SET KneePR='"+(str(labelknee.text))+"', ArmPR='"+(str(labelarm.text))+"' WHERE Userid = '"+str(results[0])+"'")
             db.commit()
+            kbp = KneegrabPage()
+            lblarm.text = kbp.loadArmPR()
+            lblknee.text = kbp.loadKneePR()
 
         if not results1:
             mycursor.execute("INSERT INTO Prs  VALUES (%s,%s,%s)",
@@ -161,8 +164,25 @@ class KneegrabPage(Screen):
             db.commit()
 
 
+    def loadArmPR(self):
 
+        username = open("user.txt").read()
+        mycursor.execute("SELECT UserId From Users WHERE Username='" + username + "'")
+        userid = mycursor.fetchone()
 
+        mycursor.execute("SELECT ArmPR From Prs WHERE UserId='" + str(userid[0]) + "'")
+        results1 = mycursor.fetchone()
+
+        return str(results1[0])
+
+    def loadKneePR(self):
+        username = open("user.txt").read()
+        mycursor.execute("SELECT UserId From Users WHERE Username='" + username + "'")
+        userid = mycursor.fetchone()
+        mycursor.execute("SELECT KneePR From Prs WHERE UserId='" + str(userid[0]) + "'")
+        results1 = mycursor.fetchone()
+
+        return str(results1[0])
 
 
 
