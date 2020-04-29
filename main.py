@@ -152,6 +152,10 @@ class KneegrabPage(Screen):
         results1 = mycursor.fetchone()
 
         if results1:
+            if labelarm.text == '':
+                labelarm.text = lblarm.text
+            if labelknee.text == '':
+                labelknee.text = lblknee.text
             mycursor.execute("UPDATE Prs SET KneePR='"+(str(labelknee.text))+"', ArmPR='"+(str(labelarm.text))+"' WHERE Userid = '"+str(results[0])+"'")
             db.commit()
             kbp = KneegrabPage()
@@ -159,9 +163,16 @@ class KneegrabPage(Screen):
             lblknee.text = kbp.loadKneePR()
 
         if not results1:
+            if labelarm.text == '':
+                labelarm.text = "0"
+            if labelknee.text == '':
+                labelknee.text = "0"
             mycursor.execute("INSERT INTO Prs  VALUES (%s,%s,%s)",
                          (int(labelknee.text),int(labelarm.text), results[0]))
             db.commit()
+            kbp = KneegrabPage()
+            lblarm.text = kbp.loadArmPR()
+            lblknee.text = kbp.loadKneePR()
 
 
     def loadArmPR(self):
