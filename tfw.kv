@@ -543,15 +543,18 @@ ScreenManagement:
             font_size: 24
             pos_hint: {"x":-0.2,"top": 1.250}
         Label:
-            text: '24'
+            id: lblarm
+            text: ''
             font_size: 42
             pos_hint: {"x":0.2,"top": 1.17}
         Label:
-            text: '29'
+            id: lblknee
+            text: ''
             font_size: 42
             pos_hint: {"x":-0.2,"top": 1.17}
 
         TextInput:
+            id: prarms
             font_size: 42
             multiline: False
             halign: 'left'
@@ -562,6 +565,7 @@ ScreenManagement:
             hint_text: "pr i arms.."
 
         TextInput:
+            id: prknee
             font_size: 42
             multiline: False
             halign: 'left'
@@ -576,7 +580,7 @@ ScreenManagement:
             font_size: 36
             size_hint: 0.3,0.07
             pos_hint: {"x":0.35,"top": 0.25}
-            on_release:
+            on_release: root.savePR()
 
 
 

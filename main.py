@@ -138,7 +138,28 @@ class WarriorsManualPage4(Screen):
 
 
 class KneegrabPage(Screen):
-    pass
+    def savePR(self):
+        labelknee = self.ids.prknee
+        labelarm = self.ids.prarms
+        username = open("user.txt").read()
+
+        mycursor.execute("SELECT UserId From Users WHERE Username='"+username+"'")
+        results = mycursor.fetchone()
+
+        if results:
+            mycursor.execute("UPDATE Prs SET KneePR= (%s), ArmPR =(%s) WHERE UserId = '"+results[0]+"'", (int(labelknee.text),int(labelarm.text)))
+            db.commit()
+
+        if not results:
+            mycursor.execute("INSERT INTO Prs  VALUES (%s,%s,%s)",
+                         (int(labelknee.text),int(labelarm.text), results[0]))
+            db.commit()
+
+
+
+
+
+
 
 
 class AdminPage(Screen):
