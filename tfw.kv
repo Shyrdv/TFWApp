@@ -14,6 +14,12 @@ ScreenManagement:
     WarriorsManualPage2:
     WarriorsManualPage3:
     WarriorsManualPage4:
+    ExercisesPage:
+    ExercisesPage1:
+    ExercisesPage2:
+    ExercisesPage3:
+    ExercisesPage4:
+    ExercisesPage5:
 
 
 <LoginPage>:
@@ -142,8 +148,20 @@ ScreenManagement:
             GridLayout:
                 cols: 1
                 orientation: 'horizontal'
-                Label:
-                    text: "1"
+                Button:
+                    text: "Mobilitetsøvelser"
+                    font_size: 28
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.55}
+                    on_release:
+                        app.root.current="ExercisesPage"
+                Button:
+                    text: "Blank"
+                    font_size: 28
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.55}
+                    on_release:
+                        #app.root.current="ExercisesPage"
             GridLayout:
                 cols: 1
                 orientation: 'horizontal'
@@ -552,7 +570,7 @@ ScreenManagement:
             text: root.loadKneePR()
             font_size: 42
             pos_hint: {"x":-0.2,"top": 1.17}
-#ass
+
         TextInput:
             id: prarms
             font_size: 42
@@ -1511,3 +1529,650 @@ ScreenManagement:
             text: "Back"
             on_release:
                 app.root.current = "admin"
+
+<ExercisesPage>:
+    name: "ExercisesPage"
+
+    FloatLayout:
+        GridLayout:
+            pos_hint: {"top": 1.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+                Label:
+                    id: label1
+                    text: ""
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+
+                Button:
+                    text: "Body Squat"
+                    font_size: 28
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.35}
+                    on_release:
+                        app.root.current="ExercisesPage1"
+
+                Button:
+                    text: "Hamstring"
+                    font_size: 28
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.35}
+                    on_release:
+                        app.root.current="ExercisesPage2"
+
+                Button:
+                    text: "Skulder - External/Internal Rotation"
+                    font_size: 26
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.35}
+                    on_release:
+                        app.root.current="ExercisesPage3"
+
+                Button:
+                    text: "Soleus og Lægmuskel"
+                    font_size: 28
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.35}
+                    on_release:
+                        app.root.current="ExercisesPage4"
+
+                Button:
+                    text: "Glutes"
+                    font_size: 28
+                    size_hint: 0.3,0.07
+                    pos_hint: {"x":0.25,"top": 0.35}
+                    on_release:
+                        app.root.current="ExercisesPage5"
+
+
+
+
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+                Label:
+                    text: "1"
+
+        GridLayout:
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
+                    Image:
+                        source : 'icons/homeicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/statsicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/evalicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/leaderboardicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
+                    Image:
+                        source : 'icons/logouticon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Turn around"
+            on_release:
+                app.root.current="user"
+#Bodysquats
+<ExercisesPage1>:
+    name: "ExercisesPage1"
+
+    FloatLayout:
+        GridLayout:
+            pos_hint: {"top": 1.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                padding: 10,100
+                cols: 1
+                orientation: 'horizontal'
+
+                ScrollView:
+                    Image:
+                        source: 'Section1.png'
+                        size_hint_x: 1
+                        size_hint_y: None
+                        text_size : self.width,None
+                        height: self.texture_size[1]
+
+
+        GridLayout:
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
+                    Image:
+                        source : 'icons/homeicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/statsicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/evalicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/leaderboardicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
+                    Image:
+                        source : 'icons/logouticon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Turn around"
+            on_release:
+                app.root.current="ExercisesPage"
+
+#Hamstring
+<ExercisesPage2>:
+    name: "ExercisesPage2"
+
+    FloatLayout:
+        GridLayout:
+            pos_hint: {"top": 1.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                padding: 10,100
+                cols: 1
+                orientation: 'horizontal'
+
+                ScrollView:
+                    Image:
+                        source: 'Section1.png'
+                        size_hint_x: 1
+                        size_hint_y: None
+                        text_size : self.width,None
+                        height: self.texture_size[1]
+
+
+        GridLayout:
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
+                    Image:
+                        source : 'icons/homeicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/statsicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/evalicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/leaderboardicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
+                    Image:
+                        source : 'icons/logouticon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Turn around"
+            on_release:
+                app.root.current="ExercisesPage"
+
+#Skulder
+<ExercisesPage3>:
+    name: "ExercisesPage3"
+
+    FloatLayout:
+        GridLayout:
+            pos_hint: {"top": 1.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                padding: 10,100
+                cols: 1
+                orientation: 'horizontal'
+
+                ScrollView:
+                    Image:
+                        source: 'Section1.png'
+                        size_hint_x: 1
+                        size_hint_y: None
+                        text_size : self.width,None
+                        height: self.texture_size[1]
+
+
+        GridLayout:
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
+                    Image:
+                        source : 'icons/homeicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/statsicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/evalicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/leaderboardicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
+                    Image:
+                        source : 'icons/logouticon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Turn around"
+            on_release:
+                app.root.current="ExercisesPage"
+
+#Soleus
+<ExercisesPage4>:
+    name: "ExercisesPage4"
+
+    FloatLayout:
+        GridLayout:
+            pos_hint: {"top": 1.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                padding: 10,100
+                cols: 1
+                orientation: 'horizontal'
+
+                ScrollView:
+                    Image:
+                        source: 'Section1.png'
+                        size_hint_x: 1
+                        size_hint_y: None
+                        text_size : self.width,None
+                        height: self.texture_size[1]
+
+
+        GridLayout:
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
+                    Image:
+                        source : 'icons/homeicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/statsicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/evalicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/leaderboardicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
+                    Image:
+                        source : 'icons/logouticon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Turn around"
+            on_release:
+                app.root.current="ExercisesPage"
+
+#Glutes
+<ExercisesPage5>:
+    name: "ExercisesPage5"
+
+    FloatLayout:
+        GridLayout:
+            pos_hint: {"top": 1.045}
+            cols: 1
+            orientation: 'horizontal'
+
+            GridLayout:
+                padding: 10,100
+                cols: 1
+                orientation: 'horizontal'
+
+                ScrollView:
+                    Image:
+                        source: 'Section1.png'
+                        size_hint_x: 1
+                        size_hint_y: None
+                        text_size : self.width,None
+                        height: self.texture_size[1]
+
+
+        GridLayout:
+            pos_hint: {"x":0,"top": 0.045}
+            cols: 1
+            orientation: 'horizontal'
+            GridLayout:
+                cols: 5
+                orientation: 'horizontal'
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "usrbtn"
+                    text: "UserButton"
+                    on_release:
+                        app.root.current ="user"
+                    Image:
+                        source : 'icons/homeicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * .5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/statsicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 1.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/evalicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 2.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "btn1"
+                    text: "test"
+                    Image:
+                        source : 'icons/leaderboardicon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 3.5 - self.width * .5
+                Button:
+                    background_color: (1,1,1,0.3)
+                    id: "logoutbtn"
+                    text: "LogOutButton"
+                    on_release:
+                        app.root.current="login_page"
+                    Image:
+                        source : 'icons/logouticon.png'
+                        size: 70,70
+                        allow_stretch: True
+                        keep_ratio: False
+                        norm_image_size:
+                        x: self.parent.width * 4.5 - self.width * .5
+
+
+
+        Button:
+            pos_hint: {"x":0.05,"top": 0.95}
+            size_hint: (None,None)
+            size: (80,40)
+            text: "Turn around"
+            on_release:
+                app.root.current="ExercisesPage"

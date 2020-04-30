@@ -133,7 +133,32 @@ class WarriorsManualPage2(Screen):
 class WarriorsManualPage3(Screen):
     pass
 
+
 class WarriorsManualPage4(Screen):
+    pass
+
+
+class ExercisesPage(Screen):
+    pass
+
+
+class ExercisesPage1(Screen):
+    pass
+
+
+class ExercisesPage2(Screen):
+    pass
+
+
+class ExercisesPage3(Screen):
+    pass
+
+
+class ExercisesPage4(Screen):
+    pass
+
+
+class ExercisesPage5(Screen):
     pass
 
 
