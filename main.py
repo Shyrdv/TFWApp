@@ -36,7 +36,7 @@ class username1:
     def getname(self):
         return self.__name
 
-
+#ass
 class LoginPage(Screen):
 
     def get_username(self):
