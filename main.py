@@ -13,7 +13,6 @@ from kivy.metrics import dp, sp
 import mysql.connector
 import hashlib
 
-
 db = mysql.connector.connect(
     host="172.104.148.212",
     user="daviid",
@@ -26,15 +25,15 @@ mycursor = db.cursor(buffered=True)
 
 class username1:
     def __init__(self, name="Guest"):
-        self.__name=name
-
+        self.__name = name
 
     def setname(self, name):
         print("name was set" + name)
-        self.__name=name
+        self.__name = name
 
     def getname(self):
         return self.__name
+
 
 class LoginPage(Screen):
 
@@ -69,12 +68,12 @@ class LoginPage(Screen):
         hash_object = hashlib.sha256(password.encode('utf-8'))
         hashedpw = hash_object.hexdigest()
 
-        mycursor.execute("SELECT * FROM Users WHERE username = '"+username+"' AND password = '"+hashedpw+"'")
+        mycursor.execute("SELECT * FROM Users WHERE username = '" + username + "' AND password = '" + hashedpw + "'")
         results = mycursor.fetchall()
 
         if results and results[0][2] == 1:
             for i in results:
-                print("Welcome "+i[0])
+                print("Welcome " + i[0])
                 info.text = ''
                 if not r_user.active:
                     self.ids.login.text = ""
@@ -89,8 +88,7 @@ class LoginPage(Screen):
                 us1 = username1()
                 us1.setname(i[0])
 
-
-                print("Welcome "+i[0])
+                print("Welcome " + i[0])
                 info.text = ''
                 if not r_user.active:
                     self.ids.login.text = ""
@@ -166,10 +164,10 @@ class KneegrabPage(Screen):
         labelknee = self.ids.prknee
         labelarm = self.ids.prarms
         lblarm = self.ids.lblarm
-        lblknee= self.ids.lblknee
+        lblknee = self.ids.lblknee
         username = open("user.txt").read()
 
-        mycursor.execute("SELECT UserId From Users WHERE Username='"+username+"'")
+        mycursor.execute("SELECT UserId From Users WHERE Username='" + username + "'")
         results = mycursor.fetchone()
 
         mycursor.execute("SELECT * From Prs WHERE UserId='" + str(results[0]) + "'")
@@ -180,7 +178,8 @@ class KneegrabPage(Screen):
                 labelarm.text = lblarm.text
             if labelknee.text == '':
                 labelknee.text = lblknee.text
-            mycursor.execute("UPDATE Prs SET KneePR='"+(str(labelknee.text))+"', ArmPR='"+(str(labelarm.text))+"' WHERE Userid = '"+str(results[0])+"'")
+            mycursor.execute("UPDATE Prs SET KneePR='" + (str(labelknee.text)) + "', ArmPR='" + (
+                str(labelarm.text)) + "' WHERE Userid = '" + str(results[0]) + "'")
             db.commit()
             kbp = KneegrabPage()
             lblarm.text = kbp.loadArmPR()
@@ -192,14 +191,14 @@ class KneegrabPage(Screen):
             if labelknee.text == '':
                 labelknee.text = "0"
             mycursor.execute("INSERT INTO Prs  VALUES (%s,%s,%s)",
-                         (int(labelknee.text),int(labelarm.text), results[0]))
+                             (int(labelknee.text), int(labelarm.text), results[0]))
             db.commit()
             kbp = KneegrabPage()
             lblarm.text = kbp.loadArmPR()
             lblknee.text = kbp.loadKneePR()
 
-
-    def loadArmPR(self):
+    @staticmethod
+    def loadArmPR():
 
         username = open("user.txt").read()
         mycursor.execute("SELECT UserId From Users WHERE Username='" + username + "'")
@@ -210,7 +209,8 @@ class KneegrabPage(Screen):
 
         return str(results1[0])
 
-    def loadKneePR(self):
+    @staticmethod
+    def loadKneePR():
         username = open("user.txt").read()
         mycursor.execute("SELECT UserId From Users WHERE Username='" + username + "'")
         userid = mycursor.fetchone()
@@ -218,7 +218,6 @@ class KneegrabPage(Screen):
         results1 = mycursor.fetchone()
 
         return str(results1[0])
-
 
 
 class AdminPage(Screen):
@@ -242,14 +241,15 @@ class CreateUserPage(Screen):
         password = pwd.text
         verifypassword = verifypwd.text
 
-        mycursor.execute("SELECT * FROM Users WHERE username = '" +username+"'")
+        mycursor.execute("SELECT * FROM Users WHERE username = '" + username + "'")
         results = mycursor.fetchall()
 
         if results:
             info.text = '[color=#FF0000]Username already exists![/color]'
         if not results:
             if verifypassword == password:
-                mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", (username, hashlib.sha256(password.encode('utf-8')).hexdigest(), True))
+                mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)",
+                                 (username, hashlib.sha256(password.encode('utf-8')).hexdigest(), True))
                 db.commit()
                 info.text = '[color=#00FF00]User Created![/color]'
             else:
@@ -261,16 +261,16 @@ class DeleteUserPage(Screen):
         user = self.ids.del_username
         username = user.text
         info = self.ids.info_delete_user
-        mycursor.execute("SELECT * FROM Users WHERE username = '" +username+"'")
+        mycursor.execute("SELECT * FROM Users WHERE username = '" + username + "'")
         results = mycursor.fetchall()
 
         if results:
-            mycursor.execute("DELETE FROM Users WHERE username = '" +username+"'")
+            mycursor.execute("DELETE FROM Users WHERE username = '" + username + "'")
             db.commit()
-            info.text = '[color=#00FF00]'+username+' has been removed![/color]'
+            info.text = '[color=#00FF00]' + username + ' has been removed![/color]'
 
         else:
-            info.text = '[color=#FF0000]' +username+ ' not found![/color]'
+            info.text = '[color=#FF0000]' + username + ' not found![/color]'
 
 
 class UpdateUserPage(Screen):
@@ -284,14 +284,15 @@ class UpdateUserPage(Screen):
         password = pwd.text
         verifypassword = verifypwd.text
 
-        mycursor.execute("SELECT * FROM Users WHERE username = '" +username+"'")
+        mycursor.execute("SELECT * FROM Users WHERE username = '" + username + "'")
         results = mycursor.fetchall()
 
         if results:
             info.text = '[color=#FF0000]Username already exists![/color]'
         if not results:
             if verifypassword == password:
-                mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", (username, hashlib.sha256(password.encode('utf-8')).hexdigest(), True))
+                mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)",
+                                 (username, hashlib.sha256(password.encode('utf-8')).hexdigest(), True))
                 db.commit()
                 info.text = '[color=#00FF00]User Created![/color]'
             else:
@@ -342,7 +343,6 @@ class ScreenManagement(ScreenManager):
                 return True  # do not exit the app
 
 
-
 class TFWApp(App):
 
     def builder(self):
@@ -352,32 +352,21 @@ class TFWApp(App):
 if __name__ == '__main__':
     TFWApp().run()
 
+# mycursor = db.cursor()
+
+# mycursor.execute("CREATE TABLE Users (username VARCHAR(20) NOT NULL, password VARCHAR(100) NOT NULL, admin_rights boolean NOT NULL, userID int PRIMARY KEY AUTO_INCREMENT)")
 
 
+# mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("Daviid9400", hashedpw2, True))
+# db.commit()
 
 
+# engine = create_engine('mysql+mysqlconnector://daviid:Ubuntob0I!@172.104.148.212/Tfw')
+
+# connection = engine.raw_connection()
+
+# mycursor = connection.cursor()
 
 
-
-
-#mycursor = db.cursor()
-
-#mycursor.execute("CREATE TABLE Users (username VARCHAR(20) NOT NULL, password VARCHAR(100) NOT NULL, admin_rights boolean NOT NULL, userID int PRIMARY KEY AUTO_INCREMENT)")
-
-
-#mycursor.execute("INSERT INTO Users (username, password, admin_rights) VALUES (%s,%s,%s)", ("Daviid9400", hashedpw2, True))
-#db.commit()
-
-
-#engine = create_engine('mysql+mysqlconnector://daviid:Ubuntob0I!@172.104.148.212/Tfw')
-
-#connection = engine.raw_connection()
-
-#mycursor = connection.cursor()
-
-
-
-
-
-  # hash_object = hashlib.sha256(password.encode('utf-8'))
-      #  hashedpw = hash_object.hexdigest()
+# hash_object = hashlib.sha256(password.encode('utf-8'))
+#  hashedpw = hash_object.hexdigest()
