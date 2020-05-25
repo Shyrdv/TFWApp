@@ -32,8 +32,8 @@ ScreenManagement:
     FloatLayout:
         canvas.before:
             Rectangle:
-                pos: self.center_x -125, self.center_y
-                size: (250,250)
+                pos: self.center_x -200, self.center_y
+                size: (400,400)
                 source: 'logo.png'
         Label:
             id: info
@@ -44,7 +44,7 @@ ScreenManagement:
         TextInput:
             id: login
             hint_text: "Username.."
-            font_size: 42
+            font_size: 50
             multiline: False
             halign: 'left'
             valign: 'middle'
@@ -68,7 +68,7 @@ ScreenManagement:
             id: passw
 
             hint_text: "Password.."
-            font_size: 42
+            font_size: 50
             multiline: False
             halign: 'left'
             write_tab: False
@@ -553,44 +553,46 @@ ScreenManagement:
     FloatLayout:
 
         Label:
-            text: 'PR I Arms'
-            font_size: 24
+            text: 'PR i Arms'
+            font_size: 60
             pos_hint: {"x":0.2,"top": 1.25}
+            bold: True
         Label:
             text: 'PR i Knee'
-            font_size: 24
+            font_size: 60
             pos_hint: {"x":-0.2,"top": 1.250}
+            bold: True
         Label:
             id: lblarm
-            text: root.loadArmPR()
-            font_size: 42
+            text: "22"
+            font_size: 100
             pos_hint: {"x":0.2,"top": 1.17}
         Label:
             id: lblknee
-            text: root.loadKneePR()
-            font_size: 42
+            text: "40"
+            font_size: 100
             pos_hint: {"x":-0.2,"top": 1.17}
 
         TextInput:
             id: prarms
-            font_size: 42
+            font_size: 50
             multiline: False
             halign: 'left'
             valign: 'middle'
             pos_hint: {"x":0.25,"top": 0.45}
             size_hint: 0.5,0.05
             #size_hint_y:None
-            hint_text: "pr i arms.."
+            hint_text: "PR | Armstrækker"
 
         TextInput:
             id: prknee
-            font_size: 42
+            font_size: 50
             multiline: False
             halign: 'left'
             valign: 'middle'
             size_hint: 0.5,0.05
             pos_hint: {"x":0.25,"top": 0.35}
-            hint_text: "pr i knees.."
+            hint_text: "PR | Knee Grabs"
 
         Button:
             id: btn3
@@ -598,7 +600,6 @@ ScreenManagement:
             font_size: 36
             size_hint: 0.3,0.07
             pos_hint: {"x":0.35,"top": 0.25}
-            on_release: root.savePR()
 
 
 

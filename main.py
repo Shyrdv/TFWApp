@@ -162,7 +162,8 @@ class ExercisesPage5(Screen):
 
 
 class KneegrabPage(Screen):
-    def savePR(self):
+    pass
+'''    def savePR(self):
         labelknee = self.ids.prknee
         labelarm = self.ids.prarms
         lblarm = self.ids.lblarm
@@ -202,7 +203,7 @@ class KneegrabPage(Screen):
     def loadArmPR(self):
 
         username = open("user.txt").read()
-        mycursor.execute("SELECT UserId From Users WHERE Username='" + username + "'")
+        mycursor.execute("SELECT UserId From Users WHERE Username='"+username+"'")
         userid = mycursor.fetchone()
 
         mycursor.execute("SELECT ArmPR From Prs WHERE UserId='" + str(userid[0]) + "'")
@@ -212,14 +213,15 @@ class KneegrabPage(Screen):
 
     def loadKneePR(self):
         username = open("user.txt").read()
-        mycursor.execute("SELECT UserId From Users WHERE Username='" + username + "'")
+        mycursor.execute("SELECT UserId From Users WHERE Username='"+username+"'")
         userid = mycursor.fetchone()
+
         mycursor.execute("SELECT KneePR From Prs WHERE UserId='" + str(userid[0]) + "'")
         results1 = mycursor.fetchone()
 
         return str(results1[0])
 
-
+'''
 
 class AdminPage(Screen):
     def dostuff(self):
