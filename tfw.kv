@@ -101,9 +101,7 @@ ScreenManagement:
             source: 'bg-2.png'
 
     name: "user"
-
     FloatLayout:
-
         GridLayout:
             pos_hint: {"top": 1.045}
             cols: 1
@@ -119,7 +117,7 @@ ScreenManagement:
             GridLayout:
                 cols: 1
                 orientation: 'horizontal'
-
+                padding: 20,20,20,20
                 Button:
                     text: "Kneegrabs / Armstrækkere"
                     font_size: 28
@@ -128,7 +126,10 @@ ScreenManagement:
                     on_release:
                         app.root.current="KneegrabPage"
                         on_release: root.getUsername()
-
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+                padding: 20,20,20,20
                 Button:
                     text: "Warriors Manual"
                     font_size: 28
@@ -136,7 +137,10 @@ ScreenManagement:
                     pos_hint: {"x":0.25,"top": 0.55}
                     on_release:
                         app.root.current="WarriorsManualPage"
-
+            GridLayout:
+                cols: 1
+                orientation: 'horizontal'
+                padding: 20,20,20,20
                 Button:
                     text: "Warrior Tracker (opens a new browser)"
                     font_size: 28
@@ -148,6 +152,8 @@ ScreenManagement:
             GridLayout:
                 cols: 1
                 orientation: 'horizontal'
+                padding: 20,20,20,20
+
                 Button:
                     text: "Mobilitetsøvelser"
                     font_size: 28
@@ -155,19 +161,13 @@ ScreenManagement:
                     pos_hint: {"x":0.25,"top": 0.55}
                     on_release:
                         app.root.current="ExercisesPage"
-                Label:
-                    size_hint: 0.3,0.07
-                    pos_hint: {"x":0.25,"top": 0.55}
 
-                Label:
-                    size_hint: 0.3,0.07
-                    pos_hint: {"x":0.25,"top": 0.55}
+
             GridLayout:
                 cols: 1
                 orientation: 'horizontal'
                 Label:
                     text: ""
-
 
 
         GridLayout:
