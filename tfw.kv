@@ -249,6 +249,11 @@ ScreenManagement:
 
 
 <AdminPage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bgadmin.png'
     name: "admin"
 
     FloatLayout:
@@ -683,6 +688,11 @@ ScreenManagement:
 
 
 <WarriorsManualPage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bg-2.png'
     name: "WarriorsManualPage"
 
     FloatLayout:
@@ -1532,6 +1542,11 @@ ScreenManagement:
                 app.root.current = "admin"
 
 <ExercisesPage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bg-2.png'
     name: "ExercisesPage"
 
     FloatLayout:
