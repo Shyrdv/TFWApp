@@ -161,6 +161,18 @@ class ExercisesPage5(Screen):
     pass
 
 
+class StatsPage(Screen):
+    pass
+
+
+class EvalPage(Screen):
+    pass
+
+
+class LeaderboardPage(Screen):
+    pass
+
+
 class KneegrabPage(Screen):
     pass
 '''    def savePR(self):
@@ -340,6 +352,27 @@ class ScreenManagement(ScreenManager):
                 return True  # do not exit the app
             elif self.current_screen.name == "WarriorsManualPage4":
                 self.current = "WarriorsManualPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "ExercisesPage":
+                self.current = "user"
+                return True  # do not exit the app
+            elif self.current_screen.name == "ExercisesPage1":
+                self.current = "ExercisesPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "ExercisesPage2":
+                self.current = "ExercisesPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "ExercisesPage3":
+                self.current = "ExercisesPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "ExercisesPage4":
+                self.current = "ExercisesPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "ExercisesPage5":
+                self.current = "ExercisesPage"
+                return True  # do not exit the app
+            elif self.current_screen.name == "StatsPage":
+                self.current = "user"
                 return True  # do not exit the app
 
 
