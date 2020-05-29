@@ -91,8 +91,6 @@ ScreenManagement:
 
 
 
-#ass
-
 <UserPage>:
     canvas.before:
         Rectangle:
@@ -239,12 +237,20 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="login_page"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
 
 
@@ -259,24 +265,32 @@ ScreenManagement:
     FloatLayout:
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "go back mofo"
             on_release:
                 app.root.current = "login_page"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
         Button:
-            pos_hint: {"x":0.25,"top": 0.65}
+            pos_hint: {"x":0.25,"top": 0.30}
             size_hint: (None,None)
-            size: (100,70)
+            size: (300,140)
             text: 'Delete User'
             on_release: app.root.current = "delete_user_page"
 
         Button:
-            pos_hint: {"x":0.25,"top": 0.25}
+            pos_hint: {"x":0.25,"top": 0.50}
             size_hint: (None,None)
-            size: (100,70)
+            size: (300,140)
             text: 'Update User'
             on_release: app.root.current = "update_user_page"
 
@@ -297,7 +311,7 @@ ScreenManagement:
                     text: "test"
 
                     Image:
-                        source : 'icon64.png'
+                        source : 'icons/homeicon.png'
                         size: 70,70
 
                         allow_stretch: True
@@ -357,7 +371,7 @@ ScreenManagement:
                     text: "test"
 
                     Image:
-                        source : 'icon64.png'
+                        source : 'icons/logouticon.png'
                         size: 70,70
 
                         allow_stretch: True
@@ -371,22 +385,28 @@ ScreenManagement:
 
 
         Button:
-            pos_hint: {"x":0.25,"top": 0.45}
+            pos_hint: {"x":0.25,"top": 0.70}
             size_hint: (None,None)
-            size: (100,70)
+            size: (300,140)
             text: 'Create User'
             on_release: app.root.current = "create_user_page"
 
         Label:
-            pos_hint: {"x":0.25,"top": 0.65}
+            pos_hint: {"x":0.40,"top": 0.90}
             size_hint: (None,None)
             size: (100,70)
+            bold: True
             id: db_count
             text: root.get_count()
 
 
 
 <CreateUserPage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bgadmin.png'
     name: "create_user_page"
 
     FloatLayout:
@@ -679,7 +699,7 @@ ScreenManagement:
 
 
         Button:
-            background_color: (1,1,1,0.3)
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
@@ -691,8 +711,8 @@ ScreenManagement:
                 allow_stretch: True
                 keep_ratio: False
                 norm_image_size:
-                x: self.parent.width * 0.8 - self.width * .5
-                y: self.parent.height * 22.5
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
 
 <WarriorsManualPage>:
@@ -843,12 +863,21 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="user"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
+
 
 
 <WarriorsManualPage1>:
@@ -947,12 +976,21 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="WarriorsManualPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
+
 
 
 <WarriorsManualPage2>:
@@ -1051,12 +1089,20 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="WarriorsManualPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
 
 <WarriorsManualPage3>:
@@ -1155,12 +1201,20 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="WarriorsManualPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
 <WarriorsManualPage4>:
     name: "WarriorsManualPage4"
@@ -1258,14 +1312,27 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="WarriorsManualPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
 <DeleteUserPage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bgadmin.png'
     name: "delete_user_page"
 
     FloatLayout:
@@ -1403,6 +1470,11 @@ ScreenManagement:
 
 
 <UpdateUserPage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bgadmin.png'
     name: "update_user_page"
 
     FloatLayout:
@@ -1718,12 +1790,20 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="user"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 #Bodysquats
 <ExercisesPage1>:
     name: "ExercisesPage1"
@@ -1818,12 +1898,21 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="ExercisesPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
+
 
 #Hamstring
 <ExercisesPage2>:
@@ -1919,12 +2008,20 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="ExercisesPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
 #Skulder
 <ExercisesPage3>:
@@ -2019,12 +2116,20 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="ExercisesPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
 #Soleus
 <ExercisesPage4>:
@@ -2120,12 +2225,20 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="ExercisesPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
 
 #Glutes
 <ExercisesPage5>:
@@ -2221,9 +2334,17 @@ ScreenManagement:
 
 
         Button:
+            background_color: (1,1,1,0)
             pos_hint: {"x":0.05,"top": 0.95}
             size_hint: (None,None)
             size: (80,40)
-            text: "Turn around"
             on_release:
                 app.root.current="ExercisesPage"
+            Image:
+                source : 'icons/back.png'
+                size: 70,70
+                allow_stretch: True
+                keep_ratio: False
+                norm_image_size:
+                x: self.parent.width * 1.05 - self.width * .5
+                y: self.parent.height * 35.5
