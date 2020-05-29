@@ -2681,17 +2681,13 @@ ScreenManagement:
             pos_hint: {"top": 1.045}
             cols: 1
             orientation: 'horizontal'
+            Image:
+                source: 'leaderboard.png'
+                size_hint_x: 1
+                size_hint_y: None
+                text_size : self.width,None
+                height: self.texture_size[1]
 
-            GridLayout:
-                padding: 10,100
-                cols: 1
-                orientation: 'horizontal'
-                Image:
-                    source: 'leaderboard.png'
-                    size_hint_x: 1
-                    size_hint_y: None
-                    text_size : self.width,None
-                    height: self.texture_size[1]
 
 
 
